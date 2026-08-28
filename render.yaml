@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ptt-taxis-signaling
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: PTT_SHARED_TOKEN
+        generateValue: true
