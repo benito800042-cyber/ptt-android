@@ -1,0 +1,1 @@
+{"name":"ptt-android-signaling","private":true,"version":"0.2.0","main":"server.js","scripts":{"start":"node server.js"},"engines":{"node":">=18"},"dependencies":{"ws":"^8.18.0"}}
