@@ -45,4 +45,4 @@ wss.on('connection',(ws)=>{
   ws.on('close',()=>{if(!c)return;clients.delete(c.id);if(speaker===c){speaker=null;broadcast({type:'speaker',speaker:null});}presence();});
 });
 function cryptoRandom(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
-server.listen(port,host,()=>console.log(`PTT signaling listening on ${host}:${port}`));
+server.listen(port,host,()=>console.log('PTT signaling listening on '+host+':'+port));
