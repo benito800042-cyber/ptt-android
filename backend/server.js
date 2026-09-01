@@ -5,8 +5,9 @@ const { WebSocketServer } = require('ws');
 const port = Number(process.env.PORT || 8080);
 const host = process.env.HOST || '0.0.0.0';
 const token = process.env.PTT_SHARED_TOKEN;
-// Demo mode is deliberately opt-in, public, and capped. Keep it disabled for production.
-const demoMode = process.env.PTT_DEMO_MODE === 'true';
+// Public demo is enabled by default for this dedicated PTT service and remains capped.
+// Set PTT_DEMO_MODE=false to disable it explicitly; token-authenticated production clients still work.
+const demoMode = process.env.PTT_DEMO_MODE !== 'false';
 const DEMO_MAX_CLIENTS = 8;
 if (!token && !demoMode) console.warn('PTT_SHARED_TOKEN is not set and demo mode is disabled; connections will be rejected.');
 if (demoMode) console.warn('PTT_DEMO_MODE is enabled: public demo channel, max 8 clients, no authentication.');
